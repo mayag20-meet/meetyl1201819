@@ -13,10 +13,10 @@ class animal(object):
 		print(self.sound*times)
 
 
-"""a=animal("bark","max",5,"blue")
+#a=animal("bark","max",5,"blue")
 #a.eat("meat")
 #a.description()
-#a.make_sound(2)"""
+#a.make_sound(2)
 
 class person(object):
 	def __init__(self, name, gender, age, city, hobby):
@@ -30,5 +30,7 @@ class person(object):
 
 a=person("maya", "female", 15, "jerusalem", "sports")
 a.eat_morning("cornflakes")
+
+class song(object):
 
 
