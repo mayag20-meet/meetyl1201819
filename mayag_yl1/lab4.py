@@ -28,9 +28,13 @@ class person(object):
 	def eat_morning(self,breakfast):
 		print(self.name+" is eating her favorite breakfast- "+breakfast)
 
-a=person("maya", "female", 15, "jerusalem", "sports")
-a.eat_morning("cornflakes")
+#a=person("maya", "female", 15, "jerusalem", "sports")
+#a.eat_morning("cornflakes")
 
 class song(object):
+	def__init__(self, lyrics):
+		self.lyrics=(lyrics)
+	def sing_a_song(self, ):
+		print
 
 

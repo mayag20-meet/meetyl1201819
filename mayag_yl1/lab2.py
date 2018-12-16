@@ -1,4 +1,4 @@
-"""
+"""1
 def myfunc():
 	list=[1,2,3,4,5]
 	list2=[list[0],list[-1]]
