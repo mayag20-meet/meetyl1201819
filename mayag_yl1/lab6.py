@@ -1,5 +1,6 @@
 import turtle
 from turtle import Turtle
+from turtle import *
 import random
 turtle.colormode(255)
 
@@ -25,8 +26,11 @@ class Haxagon(Turtle):
 		Turtle.__init__(self)
 		self.shape("hax")
 		self.shapesize(size)
-
-x = Haxagon(2)
+	def rand_color(self):
+		r=random.randint(0,256)
+		b=random.randint(0,256)
+		g=random.randint(0,256)
+		self.color(r,b,g)
 
 turtle.begin_poly()
 for i in range(6):
@@ -35,7 +39,7 @@ for i in range(6):
 turtle.end_poly()
 p = turtle.get_poly()
 print(p)
-#register_shape("myFavouriteShape", p)
+register_shape("myFavouriteShape", p)
 
 
 
