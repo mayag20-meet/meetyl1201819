@@ -1,3 +1,4 @@
+from turtle import *
 import turtle
 
 class Ball(Turtle):
@@ -35,7 +36,7 @@ class Ball(Turtle):
 while True:
 	a.move(200, 200)"""
 
-turtle.mainloop()
+
 
 
 
