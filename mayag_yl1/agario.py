@@ -11,7 +11,7 @@ SLEEP = 0.0077
 SCREEN_WIDTH = turtle.getcanvas().winfo_width()/2
 SCREEN_HEIGHT = turtle.getcanvas().winfo_height()/2
 
-my_ball=Ball(0,0,2,3,40,"blue")
+my_ball=Ball(0,0,2,3,40,"black")
 
 num_balls=5
 min_ball_r=10
@@ -20,6 +20,17 @@ min_ball_dx=-2
 max_ball_dx=2
 min_ball_dy=-2
 max_ball_dy=2
+
+food=[]
+for i in range(40):
+	x= random.randint(-SCREEN_WIDTH + max_ball_r, SCREEN_WIDTH - max_ball_r)
+	y= random.randint(-SCREEN_HEIGHT + max_ball_r, SCREEN_HEIGHT - max_ball_r)
+	dx=0
+	dy=0
+	r= 4
+	color= (random.random(), random.random(), random.random())
+	food.append(Ball(x,y,dx,dy,r,color))
+
 
 balls=[]
 for i in range(num_balls):
@@ -61,7 +72,7 @@ def all_collide():
 				else:
 					randomize(ball2,ball1)
 
-def randomize(bigger,smaller):
+def randomize(bigger,smaller,  isFood = False):
 	x= random.randint(-SCREEN_WIDTH + max_ball_r, SCREEN_WIDTH - max_ball_r)
 	y= random.randint(-SCREEN_HEIGHT + max_ball_r, SCREEN_HEIGHT - max_ball_r)
 	dx=0
@@ -76,6 +87,13 @@ def randomize(bigger,smaller):
 		dy= random.randint(min_ball_dy, max_ball_dy)
 	r= random.randint(min_ball_r, max_ball_r)
 	color= (random.random(), random.random(), random.random())
+	if isFood:
+		dx = 0
+		dy = 0
+		r = 4
+		bigger.r += 0.5
+	else:
+		bigger.r=bigger.r+3
 	smaller.dx=dx
 	smaller.dy=dy
 	smaller.r=r
@@ -85,7 +103,7 @@ def randomize(bigger,smaller):
 	smaller.penup()
 	smaller.goto(x,y)
 
-	bigger.r=bigger.r+1
+	
 	bigger.shapesize(bigger.r/10)
 def my_collide():
 		for rand_ball in balls:
@@ -96,11 +114,17 @@ def my_collide():
 					randomize(my_ball,rand_ball)
 				else:
 					return False 
+		for i in food:
+			if collide(my_ball, i)==True:
+				randomize(my_ball,i, True)
+
 		return True
 def movearound(event):
 	my_ball.goto(event.x-SCREEN_WIDTH, SCREEN_HEIGHT-event.y)
 turtle.getcanvas().bind("<Motion>", movearound)
 turtle.listen()
+
+
 
 while RUNNING==True:
 	SCREEN_WIDTH = turtle.getcanvas().winfo_width()/2
@@ -112,4 +136,6 @@ while RUNNING==True:
 	all_collide()
 	turtle.update()
 	time.sleep(SLEEP)
+
+
 
