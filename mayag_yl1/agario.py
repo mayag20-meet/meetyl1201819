@@ -8,8 +8,8 @@ turtle.tracer(0,0)
 turtle.hideturtle()
 RUNNING = True
 SLEEP = 0.0077
-SCREEN_WIDTH = turtle.getcanvas().winfo_width()/2
-SCREEN_HEIGHT = turtle.getcanvas().winfo_height()/2
+SCREEN_WIDTH = turtle.getcanvas().winfo_width()//2
+SCREEN_HEIGHT = turtle.getcanvas().winfo_height()//2
 
 my_ball=Ball(0,0,2,3,40,"black")
 
@@ -127,8 +127,8 @@ turtle.listen()
 
 
 while RUNNING==True:
-	SCREEN_WIDTH = turtle.getcanvas().winfo_width()/2
-	SCREEN_HEIGHT = turtle.getcanvas().winfo_height()/2
+	SCREEN_WIDTH = turtle.getcanvas().winfo_width()//2
+	SCREEN_HEIGHT = turtle.getcanvas().winfo_height()//2
 	for ball in balls:
 		ball.move(SCREEN_WIDTH, SCREEN_HEIGHT)
 	if my_collide()==False:
