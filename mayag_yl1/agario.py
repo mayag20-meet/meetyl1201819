@@ -136,6 +136,3 @@ while RUNNING==True:
 	all_collide()
 	turtle.update()
 	time.sleep(SLEEP)
-
-
-
